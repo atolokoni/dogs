@@ -39,9 +39,4 @@ class RubberTaxaWithPischalka extends Dog {
     public static $huntWord = 'Стоит на месте и недоумевает' . '<br/>';
 }
 
-echo Dog::rawr();
-print SibaInu::rawr();
-
-
-
 ?>

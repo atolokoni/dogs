@@ -12,38 +12,49 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <img src="./img/siba.jpg" />
-                <button type="button" class="btn btn-primary">охотиться</button>
-                <button type="button" class="btn btn-secondary">издать звук</button>
+                <img src="front/img/siba.jpg" />
+                <button type="button" class="btn btn-primary" onclick="action('siba', 'hunt')">охотиться</button>
+                <button type="button" class="btn btn-secondary" onclick="action('siba', 'woof')">издать звук</button>
             </div>
             <div class="col">
-                <img src="./img/taxa.jpg" />
-                <button type="button" class="btn btn-primary">охотиться</button>
-                <button type="button" class="btn btn-secondary">издать звук</button>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <img src="./img/taxa-toy.jpg" />
-                <button type="button" class="btn btn-primary">охотиться</button>
-                <button type="button" class="btn btn-secondary">издать звук</button>
-            </div>
-            <div class="col">
-                <img src="./img/mops.jpg" />
-                <button type="button" class="btn btn-primary">охотиться</button>
-                <button type="button" class="btn btn-secondary">издать звук</button>
+                <img src="front/img/taxa.jpg" />
+                <button type="button" class="btn btn-primary" onclick="action('taxa', 'hunt')">охотиться</button>
+                <button type="button" class="btn btn-secondary" onclick="action('taxa', 'woof')">издать звук</button>
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <img src="./img/pl-labr.jpg" />
-                <button type="button" class="btn btn-primary">охотиться</button>
-                <button type="button" class="btn btn-secondary">издать звук</button>
+                <img src="front/img/taxa-toy.jpg" />
+                <button type="button" class="btn btn-primary" onclick="action('taxa-toy', 'hunt')">охотиться</button>
+                <button type="button" class="btn btn-secondary" onclick="action('taxa-toy', 'woof')">издать звук</button>
+            </div>
+            <div class="col">
+                <img src="front/img/mops.jpg" />
+                <button type="button" class="btn btn-primary" onclick="action('mops', 'hunt')"> охотиться</button>
+                <button type="button" class="btn btn-secondary" onclick="action('mops', 'woof')">издать звук</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <img src="front/img/pl-labr.jpg" />
+                <button type="button" class="btn btn-primary" onclick="action('pl-labr', 'hunt')">охотиться</button>
+                <button type="button" class="btn btn-secondary" onclick="action('pl-labr', 'woof')">издать звук</button>
             </div>
             <div class="col">
             </div>
         </div>
     </div>
+    <script>
+        function action(type, act) {
+            fetch('/back/woof.php?type=' + type + '&act=' + act, {method: 'POST'})
+                .then(function (result) {
+                    return result.text()
+                }).then(function (text) {
+                    alert(text);
+                })
+            
+        }
+    </script>
 
 </body>
 
