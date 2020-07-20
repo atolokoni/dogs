@@ -26,7 +26,8 @@
             <div class="col">
                 <img src="front/img/taxa-toy.jpg" />
                 <button type="button" class="btn btn-primary" onclick="action('taxa-toy', 'hunt')">охотиться</button>
-                <button type="button" class="btn btn-secondary" onclick="action('taxa-toy', 'woof')">издать звук</button>
+                <button type="button" class="btn btn-secondary" onclick="action('taxa-toy', 'woof')">издать
+                    звук</button>
             </div>
             <div class="col">
                 <img src="front/img/mops.jpg" />
@@ -46,13 +47,19 @@
     </div>
     <script>
         function action(type, act) {
-            fetch('/back/woof.php?type=' + type + '&act=' + act, {method: 'POST'})
+            fetch('/back/dogs.php', {
+                method: 'POST',
+                body: JSON.stringify({ type, act }),
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+            })
                 .then(function (result) {
                     return result.text()
                 }).then(function (text) {
                     alert(text);
                 })
-            
+
         }
     </script>
 
