@@ -6,11 +6,11 @@ abstract class Dog
     public static $huntWord;
 
     public static function hunt() {
-        return static::$my_static;
+        return static::$huntWord;
     }
 
     public static function woof() {
-        return static::$my_static;
+        return static::$woofWord;
     }
 }
 
@@ -39,8 +39,7 @@ class RubberTaxaWithPischalka extends Dog {
     public static $huntWord = 'Стоит на месте и недоумевает' . '<br/>';
 }
 
-echo Dog::rawr();
-print SibaInu::rawr();
+
 
 
 
